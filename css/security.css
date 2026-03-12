@@ -1,7 +1,7 @@
 .security {
   position: relative;
   min-height: 760px;
-  background: #f3f3f1;
+  background: #fff;
   overflow: hidden;
   isolation: isolate;
 }

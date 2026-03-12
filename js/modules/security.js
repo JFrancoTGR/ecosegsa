@@ -1,3 +1,5 @@
+// security.js
+
 export function initSecurity() {
   const section = document.querySelector('.security');
   if (
@@ -18,12 +20,29 @@ export function initSecurity() {
   const text = section.querySelector('.security__text');
   const items = section.querySelectorAll('.security__item');
 
+  // ─── Null checks ──────────────────────────────────────────
+  const elements = [image, leaf, ring, semiCircle, title, subtitle, divider, text];
+  if (elements.some((el) => !el) || !items.length) return;
+
+  // ─── Reduced motion ───────────────────────────────────────
+  const prefersReducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  ).matches;
+
+  if (prefersReducedMotion) {
+    gsap.set([...elements, ...items], { opacity: 1, clearProps: 'all' });
+    return;
+  }
+
+  // ─── Timeline ─────────────────────────────────────────────
+  const isMobile = window.innerWidth <= 768;
+  const triggerStart = isMobile ? 'top 88%' : 'top 78%';
+
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: section,
-      start: 'top 78%',
+      start: triggerStart,
       once: true,
-      // markers: true,
     },
     defaults: {
       ease: 'power3.out',
@@ -95,7 +114,7 @@ export function initSecurity() {
       {
         y: 16,
         opacity: 0,
-        stagger: 0.08,
+        stagger: isMobile ? 0.06 : 0.08,
         duration: 0.45,
       },
       '-=0.2',

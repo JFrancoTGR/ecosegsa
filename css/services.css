@@ -176,9 +176,33 @@
     min-height: 92px;
   }
 
+  /* ✅ Colapsar el body a 1 columna en tablet */
   .service-card__body {
-    grid-template-columns: 64px 1fr;
-    gap: 16px;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  /* Reorientar íconos a fila, igual que en mobile */
+  .service-card__icon-group {
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 0;
+  }
+
+  .service-card__icon-single {
+    justify-content: flex-start;
+    padding-top: 0;
+  }
+
+  /* Quitar la línea vertical izquierda — ya no aplica sin columnas */
+  .service-card__content {
+    padding-left: 0;
+  }
+
+  .service-card__content::before {
+    display: none;
   }
 
   .service-card__icon-group img {

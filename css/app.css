@@ -133,7 +133,8 @@ button {
 ====================================================== */
 
 #nosotros,
-#services, #seguridad {
+#services,
+#seguridad {
   scroll-margin-top: 60px;
 }
 
@@ -328,7 +329,14 @@ button {
 }
 
 .site-header__mobile {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition:
+    opacity 0.24s ease,
+    transform 0.24s ease,
+    visibility 0.24s ease;
 }
 
 /* ======================================================
@@ -354,29 +362,23 @@ button {
     top: calc(100% + 8px);
     left: 18px;
     right: 18px;
-
     padding: 16px;
-
     border-radius: 24px;
-
     background: rgba(255, 255, 255, 0.92);
     border: 1px solid white;
-
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
-
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
   }
 
   .site-header.is-menu-open .site-header__mobile {
-    display: block;
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+    pointer-events: auto;
   }
 
   .site-header__mobile-nav {
@@ -436,7 +438,6 @@ button {
     height: 42px;
   }
 }
-
 /* ==========================================================
   BIGGER SCREENS
 =========================================================== */
@@ -450,6 +451,7 @@ button {
     --header-max-width: 1440px;
   }
 
+  /* ─── Contenedores — ancho máximo universal ─────────────── */
   .site-header__inner,
   .hero__container,
   .about__container,
@@ -462,9 +464,8 @@ button {
     max-width: 1440px;
   }
 
-  .hero {
-    min-height: 1120px;
-  }
+  /* ─── Hero ───────────────────────────────────────────────── */
+  /* min-height: 100dvh viene del base — no se redeclara */
 
   .hero__container {
     padding-top: 170px;
@@ -493,8 +494,9 @@ button {
     padding: 20px 28px;
   }
 
+  /* ─── About ──────────────────────────────────────────────── */
   .about {
-    min-height: 820px;
+    min-height: 100dvh; /* ← consistente con hero y security */
   }
 
   .about__container {
@@ -519,8 +521,9 @@ button {
     line-height: 1.5;
   }
 
+  /* ─── Services ───────────────────────────────────────────── */
   .services {
-    margin-top: -86px;
+    margin-top: 0; /* ← eliminado overlap negativo frágil */
     padding-bottom: 130px;
   }
 
@@ -558,6 +561,7 @@ button {
     line-height: 1.5;
   }
 
+  /* ─── CTA Ribbon ─────────────────────────────────────────── */
   .cta-ribbon {
     min-height: 62px;
   }
@@ -572,8 +576,9 @@ button {
     font-size: 1.6rem;
   }
 
+  /* ─── Security ───────────────────────────────────────────── */
   .security {
-    min-height: 860px;
+    min-height: 100dvh; /* ← consistente con hero y about */
   }
 
   .security__container {
@@ -602,6 +607,7 @@ button {
     font-size: 1.45rem;
   }
 
+  /* ─── Partners ───────────────────────────────────────────── */
   .partners {
     padding-top: 96px;
     padding-bottom: 96px;
@@ -621,13 +627,14 @@ button {
     max-height: 84px;
   }
 
+  /* ─── Contact ────────────────────────────────────────────── */
   .contact__container {
     padding-top: 104px;
     padding-bottom: 110px;
   }
 
   .contact__grid {
-    grid-template-columns: minmax(0, 1fr) 430px;
+    grid-template-columns: minmax(0, 1fr) 520px; /* ← aumentado de 430px */
     gap: 74px;
   }
 
@@ -668,6 +675,7 @@ button {
     min-height: 96px;
   }
 
+  /* ─── Footer ─────────────────────────────────────────────── */
   .site-footer__inner {
     padding-top: 26px;
     padding-bottom: 26px;

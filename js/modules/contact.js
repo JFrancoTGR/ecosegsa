@@ -1,3 +1,5 @@
+// contact.js
+
 export function initContact() {
   const section = document.querySelector('.contact');
 
@@ -17,10 +19,27 @@ export function initContact() {
   const infoItems = section.querySelectorAll('.contact__info-item');
   const formCard = section.querySelector('.contact__form-card');
 
+  // ─── Null checks ──────────────────────────────────────────
+  const elements = [semiCircle, title, subtitle, divider, text, formCard];
+  if (elements.some((el) => !el) || !infoItems.length) return;
+
+  // ─── Reduced motion ───────────────────────────────────────
+  const prefersReducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)',
+  ).matches;
+
+  if (prefersReducedMotion) {
+    gsap.set([...elements, ...infoItems], { opacity: 1, clearProps: 'all' });
+    return;
+  }
+
+  // ─── Timeline ─────────────────────────────────────────────
+  const triggerStart = window.innerWidth <= 768 ? 'top 90%' : 'top 80%';
+
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: section,
-      start: 'top 80%',
+      start: triggerStart,
       once: true,
     },
     defaults: {
@@ -83,7 +102,7 @@ export function initContact() {
       formCard,
       {
         opacity: 0,
-        scale: 0.96,
+        y: 24,
         duration: 0.75,
       },
       '-=0.45',

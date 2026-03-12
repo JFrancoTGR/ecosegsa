@@ -155,12 +155,12 @@
 /* Tablet */
 @media (max-width: 1024px) {
   .hero {
-    min-height: 860px;
+    /* min-height: 100dvh; */
     align-items: flex-start;
   }
 
   .hero__container {
-    padding: 140px 24px 54px;
+    padding: 440px 24px 54px;
   }
 
   .hero__content {
@@ -191,12 +191,12 @@
 /* Mobile */
 @media (max-width: 768px) {
   .hero {
-    min-height: auto;
-    padding-bottom: 40px;
+    /* min-height: 100dvh; */
+    padding-bottom: 0;
   }
 
   .hero__container {
-    padding: 120px 18px 24px;
+    padding: 240px 18px 24px;
   }
 
   .hero__content {
