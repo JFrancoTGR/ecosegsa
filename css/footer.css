@@ -1,0 +1,28 @@
+.site-footer {
+  background: #1d1d1d;
+  color: #ffffff;
+}
+
+.site-footer__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 22px 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.site-footer__logo {
+  width: 150px;
+  height: auto;
+  opacity: 0.95;
+}
+
+.site-footer__copyright {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: right;
+  line-height: 1.3;
+}

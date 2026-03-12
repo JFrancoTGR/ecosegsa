@@ -1,0 +1,288 @@
+.about {
+  position: relative;
+  min-height: 720px;
+  /* background: #f3f3f1; */
+  overflow: visible;
+  isolation: isolate;
+}
+
+/* =========================
+   MEDIA LAYER
+========================= */
+
+.about__media {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.about__image {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: min(64%, 980px);
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+}
+
+.about__image-fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.04) 10%,
+    rgba(255, 255, 255, 0.18) 20%,
+    rgba(255, 255, 255, 0.42) 30%,
+    rgba(255, 255, 255, 0.72) 40%,
+    rgba(255, 255, 255, 0.92) 50%,
+    rgba(255, 255, 255, 1) 58%
+  );
+}
+
+.about__ring {
+  position: absolute;
+  left: 4.8%;
+  top: 16%;
+  width: 230px;
+  height: 230px;
+  border: 46px solid rgba(183, 207, 22, 0.23);
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.about__container {
+  position: relative;
+  z-index: 3;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 88px 28px 190px;
+}
+
+.about__content {
+  position: relative;
+  width: min(100%, 470px);
+  margin-left: auto;
+  margin-right: 2%;
+  margin-top: 6%;
+}
+
+.about__heading-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.about__semi-circle {
+  flex-shrink: 0;
+  width: 38px;
+  height: 78px;
+  margin-top: 4px;
+  border: 15px solid #b7cf16;
+  border-right: 0;
+  border-radius: 999px 0 0 999px;
+}
+
+.about__heading-group {
+  flex: 1;
+}
+
+.about__title {
+  font-size: clamp(3rem, 4.6vw, 4.6rem);
+  line-height: 0.95;
+  font-weight: 400;
+  color: #000;
+  letter-spacing: -0.04em;
+}
+
+.about__subtitle {
+  margin-top: 12px;
+  font-size: clamp(1rem, 1.15vw, 1.15rem);
+  line-height: 1.2;
+  color: #111;
+}
+
+.about__divider {
+  width: 100%;
+  max-width: 470px;
+  height: 4px;
+  margin-top: 16px;
+  background: #6f9e1c;
+}
+
+.about__text {
+  margin-top: 34px;
+  font-size: clamp(1.1rem, 1.32vw, 1.28rem);
+  line-height: 1.46;
+  color: #111;
+  text-align: left;
+}
+
+.about__leaf {
+  position: absolute;
+  top: -8px;
+  right: -6px;
+  width: 20px;
+  height: auto;
+}
+
+/* =========================
+   LAPTOP
+========================= */
+
+@media (max-width: 1200px) {
+  .about {
+    min-height: 660px;
+  }
+
+  .about__image {
+    width: 62%;
+  }
+
+  .about__ring {
+    width: 190px;
+    height: 190px;
+    border-width: 22px;
+  }
+
+  .about__container {
+    padding: 78px 24px 170px;
+  }
+
+  .about__content {
+    width: min(100%, 430px);
+    margin-right: 2%;
+  }
+
+  .about__title {
+    font-size: clamp(2.8rem, 4.4vw, 4rem);
+  }
+
+  .about__services-title {
+    font-size: clamp(2.8rem, 5vw, 4.4rem);
+  }
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1024px) {
+  .about {
+    min-height: auto;
+    /* background: #f3f3f1; */
+  }
+
+  .about__media {
+    position: relative;
+    height: 400px;
+  }
+
+  .about__image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .about__image-fade {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.2) 46%,
+      rgba(255, 255, 255, 0.88) 82%,
+      rgba(255, 255, 255, 1) 100%
+    );
+  }
+
+  .about__ring {
+    left: 7%;
+    top: 18%;
+    width: 170px;
+    height: 170px;
+    border-width: 18px;
+  }
+
+  .about__container {
+    padding: 28px 24px 150px;
+  }
+
+  .about__content {
+    width: 100%;
+    max-width: 720px;
+    margin: 0;
+  }
+
+  .about__leaf {
+    top: -180px;
+    right: 12px;
+  }
+
+  .about__divider {
+    max-width: 100%;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .about__media {
+    height: 300px;
+  }
+
+  .about__ring {
+    left: 6%;
+    top: 14%;
+    width: 120px;
+    height: 120px;
+    border-width: 14px;
+  }
+
+  .about__container {
+    padding: 24px 18px 124px;
+  }
+
+  .about__heading-row {
+    gap: 12px;
+  }
+
+  .about__semi-circle {
+    width: 24px;
+    height: 52px;
+    border-width: 6px;
+    margin-top: 2px;
+  }
+
+  .about__title {
+    font-size: clamp(2.3rem, 10vw, 3.2rem);
+    line-height: 0.98;
+  }
+
+  .about__subtitle {
+    margin-top: 10px;
+    font-size: 0.98rem;
+  }
+
+  .about__divider {
+    height: 3px;
+    margin-top: 14px;
+  }
+
+  .about__text {
+    margin-top: 24px;
+    font-size: 1rem;
+    line-height: 1.52;
+  }
+
+  .about__leaf {
+    top: -138px;
+    right: 4px;
+    width: 16px;
+  }
+}
